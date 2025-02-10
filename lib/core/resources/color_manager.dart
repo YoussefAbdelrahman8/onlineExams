@@ -3,11 +3,13 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 abstract class ColorManager {
+  static Color error = const Color(0xFFCC1010);
   static Color lightPrimaryColor = Colors.white;
   static Color lightOnPrimaryColor = Colors.white;
   static Color lightSecondary = Colors.white;
   static Color lightOnSecondary = Colors.white;
-  static Color lightTertiary = Colors.white;
+  static Color lightTertiary = const Color(0xFF535353);
+  static Color lightOnTertiary = Colors.black;
   static Color darkPrimaryColor = Colors.black;
   static Color darkOnPrimaryColor = Colors.black;
   static Color darkSecondary = Colors.black;

@@ -4,7 +4,16 @@ import 'color_manager.dart';
 
 abstract class ThemeManager {
   static ThemeData lightTheme = ThemeData(
-      textTheme: const TextTheme(),
+      textTheme: const TextTheme(
+        labelMedium: TextStyle(
+            fontWeight: FontWeight.w500,
+            fontSize: 16,),
+        labelSmall: TextStyle(
+          fontWeight: FontWeight.w400,
+          fontSize: 14,
+          color: Color(0xFFA6A6A6),
+        )
+      ),
       colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.white,
           primary: ColorManager.lightPrimaryColor,
