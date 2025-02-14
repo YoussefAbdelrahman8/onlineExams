@@ -30,20 +30,7 @@ class CustomTextField extends StatelessWidget {
       obscuringCharacter: "*",
       decoration: InputDecoration(
         labelText: label,
-        labelStyle: Theme.of(context).textTheme.labelSmall?.copyWith(color: ColorManager.lightOnTertiary),
         hintText: hint,
-        hintStyle: Theme.of(context).textTheme.labelSmall,
-        counterStyle: TextStyle(color: ColorManager.lightOnTertiary),
-        floatingLabelBehavior: FloatingLabelBehavior.always,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(4),
-        ),
-        enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: ColorManager.lightTertiary)),
-        focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: ColorManager.lightOnTertiary)),
-        errorBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: ColorManager.error)),
       ),
     );
   }

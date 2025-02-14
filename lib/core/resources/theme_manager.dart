@@ -4,15 +4,33 @@ import 'color_manager.dart';
 
 abstract class ThemeManager {
   static ThemeData lightTheme = ThemeData(
+    inputDecorationTheme: InputDecorationTheme(
+      labelStyle:TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: 14,
+        color: ColorManager.lightOnTertiary),
+      hintStyle: const TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: 14,
+        color: Color(0xFFA6A6A6),
+      ),
+      counterStyle: TextStyle(color: ColorManager.lightOnTertiary),
+      floatingLabelBehavior: FloatingLabelBehavior.always,
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(4),
+      ),
+      enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: ColorManager.lightTertiary)),
+      focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: ColorManager.lightOnTertiary)),
+      errorBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: ColorManager.error)),
+
+    ),
       textTheme: const TextTheme(
-        labelMedium: TextStyle(
+        labelSmall: TextStyle(
             fontWeight: FontWeight.w500,
             fontSize: 16,),
-        labelSmall: TextStyle(
-          fontWeight: FontWeight.w400,
-          fontSize: 14,
-          color: Color(0xFFA6A6A6),
-        )
       ),
       colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.white,
