@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:online_exam_app/core/resources/color_manager.dart';
+import 'package:online_exam_app/core/utiles/color_manager.dart';
 
 class CustomTextField extends StatelessWidget {
   String label;
   String hint;
   TextEditingController? controller;
-  String Function(String? value)? validation;
+  String? Function(String? value)? validation;
   bool secure;
 
 
@@ -24,7 +24,7 @@ class CustomTextField extends StatelessWidget {
       validator: (value) {
         return validation!(value);
       },
-      cursorColor: ColorManager.lightOnTertiary,
+      cursorColor: Theme.of(context).colorScheme.tertiary,
       controller: controller,
       obscureText: secure,
       obscuringCharacter: "*",
