@@ -37,7 +37,7 @@ class SignupApiDaoImpl extends SignupDao {
     if(response.message == "success"){
       return Left(response);
     }else{
-      Right(response.message!);
+      return Right(response.message!);
     }
     }catch(error){
       return Right(error.toString());
