@@ -89,7 +89,7 @@ abstract class StringManager {
     ForgetPassword.password: "Password",
     ForgetPassword.forgetPassword: "Forget password",
     ForgetPassword.pleaseEnterUrEmail:
-        "Please enter your email associated to your account",
+        "Please enter your email associated to\nyour account",
     ForgetPassword.coontinue: "Continue",
   };
 }
