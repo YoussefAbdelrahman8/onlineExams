@@ -7,6 +7,7 @@ class CustomTextField extends StatelessWidget {
   TextEditingController? controller;
   String? Function(String? value)? validation;
   bool secure;
+  void Function(String)? onChanged;
 
 
   CustomTextField({
@@ -15,7 +16,8 @@ class CustomTextField extends StatelessWidget {
     required this.hint,
     required this.controller,
     required this.validation,
-    required this.secure
+    required this.secure,
+    required this.onChanged
   });
 
   @override
@@ -24,6 +26,7 @@ class CustomTextField extends StatelessWidget {
       validator: (value) {
         return validation!(value);
       },
+      onChanged: onChanged,
       cursorColor: Theme.of(context).colorScheme.tertiary,
       controller: controller,
       obscureText: secure,
