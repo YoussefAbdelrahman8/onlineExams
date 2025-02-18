@@ -3,8 +3,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 
-import 'core/resources/theme_manager.dart';
+import 'core/utiles/theme_manager.dart';
 import 'core/widget/custom_text_field.dart';
+import 'features/signup/presentation/pages/signup_screen.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -12,8 +13,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(),
+    return  MaterialApp(
+      theme: ThemeManager.lightTheme,
+      darkTheme: ThemeManager.darkTheme,
+      themeMode: ThemeMode.light,
+      home: SignupScreen(),
     );
   }
 }
