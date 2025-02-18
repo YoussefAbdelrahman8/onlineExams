@@ -21,4 +21,11 @@ class ApiManager {
       Map<String, dynamic>? headers}) {
     return dio.get(path, data: body, options: Options(headers: headers));
   }
+
+  Future<Response> putRequest(
+      {required String path,
+      Map<String, dynamic>? body,
+      Map<String, dynamic>? headers}) {
+    return dio.put(path, data: body, options: Options(headers: headers));
+  }
 }
