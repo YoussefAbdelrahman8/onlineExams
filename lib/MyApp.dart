@@ -2,6 +2,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:online_exam_app/features/forget_password/presentation/pages/forget_password_screen.dart';
 
 import 'core/utiles/theme_manager.dart';
 import 'core/widget/custom_text_field.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeManager.lightTheme,
       darkTheme: ThemeManager.darkTheme,
       themeMode: ThemeMode.light,
-      home: SignupScreen(),
+      home: ForgetPasswordScreen(),
     );
   }
 }

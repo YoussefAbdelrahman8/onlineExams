@@ -37,6 +37,13 @@ enum Validation {
   passNotMatched,
 }
 
+enum ForgetPassword {
+  password,
+  forgetPassword,
+  pleaseEnterUrEmail,
+  coontinue,
+}
+
 abstract class StringManager {
   static const String noInternet = "No Internet Connection";
   static const Map<dynamic, String> signup = {
@@ -77,5 +84,12 @@ abstract class StringManager {
     Validation.enterValidPhoneNum: "Enter a valid phone number",
     Validation.confirmPassReq: "Confirm Password is required",
     Validation.passNotMatched: "Passwords not matched",
+  };
+  static const Map<dynamic, String> forgetPassword = {
+    ForgetPassword.password: "Password",
+    ForgetPassword.forgetPassword: "Forget password",
+    ForgetPassword.pleaseEnterUrEmail:
+        "Please enter your email associated to your account",
+    ForgetPassword.coontinue: "Continue",
   };
 }
