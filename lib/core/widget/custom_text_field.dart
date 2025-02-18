@@ -17,7 +17,7 @@ class CustomTextField extends StatelessWidget {
     required this.controller,
     required this.validation,
     required this.secure,
-    required this.onChanged
+    this.onChanged
   });
 
   @override
