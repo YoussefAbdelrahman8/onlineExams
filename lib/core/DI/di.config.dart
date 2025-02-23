@@ -41,8 +41,6 @@ import '../../features/forget_password/domain/use_cases/reset_pass_usecase.dart'
     as _i826;
 import '../../features/forget_password/domain/use_cases/verify_reset_code_usecase.dart'
     as _i43;
-import '../../features/forget_password/presentation/manager/send_email_view_model/forgetpassword_email_sent_view_model_cubit.dart'
-    as _i653;
 import '../../features/signup/data/remote/data_sources/dao_impl/signup_api_dao_impl.dart'
     as _i695;
 import '../../features/signup/data/remote/data_sources/signup_dao.dart'
@@ -90,9 +88,6 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i43.VerifyResetCodeUseCase(gh<_i642.VerifyResetCodeRepo>()));
     gh.factory<_i25.SignupUseCase>(
         () => _i25.SignupUseCase(gh<_i502.SignupRepo>()));
-    gh.factory<_i653.ForgetPasswordEmailSentViewModelCubit>(() =>
-        _i653.ForgetPasswordEmailSentViewModelCubit(
-            gh<_i308.ForgetPasswordUseCase>()));
     gh.factory<_i326.SignupViewModelCubit>(
         () => _i326.SignupViewModelCubit(gh<_i25.SignupUseCase>()));
     return this;
