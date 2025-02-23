@@ -4,7 +4,17 @@ import 'color_manager.dart';
 
 abstract class ThemeManager {
   static ThemeData lightTheme = ThemeData(
-    appBarTheme: const AppBarTheme(
+    checkboxTheme: CheckboxThemeData(
+      checkColor: WidgetStatePropertyAll(ColorManager.lightPrimaryColor),
+      side: BorderSide(
+        color: ColorManager.lightOnTertiary,
+        width: 2,
+      ),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(2),
+      ),
+    ),
+      appBarTheme: const AppBarTheme(
       titleTextStyle: TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.w500,
@@ -34,6 +44,10 @@ abstract class ThemeManager {
             borderSide: BorderSide(color: ColorManager.error)),
       ),
       textTheme: TextTheme(
+        bodySmall: const TextStyle(
+          fontSize: 13,
+          fontWeight: FontWeight.w400,
+        ),
         bodyMedium: const TextStyle(
           fontSize: 24,
           fontWeight: FontWeight.bold,
@@ -51,6 +65,14 @@ abstract class ThemeManager {
           fontWeight: FontWeight.w400,
           fontSize: 16,
         ),
+        headlineSmall: TextStyle(
+          decoration: TextDecoration.underline,
+          decorationColor: ColorManager.lightOnTertiary,
+          decorationThickness: 3.0,
+          fontWeight: FontWeight.w400,
+          fontSize: 12,
+          color: ColorManager.lightOnTertiary
+      ),
         labelMedium: TextStyle(
           decoration: TextDecoration.underline,
           decorationColor: ColorManager.lightSecondaryColor,

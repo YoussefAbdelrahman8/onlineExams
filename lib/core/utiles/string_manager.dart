@@ -49,6 +49,12 @@ enum ForgetPassword {
   resetPass,
   passRules,
 }
+enum Login{
+  login,
+  rememberMe,
+  forgetPass,
+  dontHaveAcc
+}
 
 abstract class StringManager {
   static const String noInternet = "No Internet Connection";
@@ -107,5 +113,11 @@ abstract class StringManager {
     ForgetPassword.resetPass: "Reset Password",
     ForgetPassword.passRules:
         "Password must not be empty and must contain\n6 characters with upper case letter and one number\nand one special character at least",
+  };
+  static const Map<dynamic, String> login = {
+    Login.login : "Login",
+    Login.dontHaveAcc:"Don't have an account? ",
+    Login.rememberMe:"Remember me",
+    Login.forgetPass:"Forget password",
   };
 }
