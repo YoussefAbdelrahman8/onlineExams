@@ -20,10 +20,9 @@ class SignupApiDaoImpl extends SignupDao {
       required String email,
       required String password,
       required String phoneNumber}) async {
-    try{
-    var apiResponse = await apiManager.postRequest(
-      path: Endpoints.signUp,
-      body: {
+    try {
+      var apiResponse =
+          await apiManager.postRequest(path: Endpoints.signUp, body: {
         "username": username,
         "firstName": firstName,
         "lastName": lastName,
@@ -32,14 +31,14 @@ class SignupApiDaoImpl extends SignupDao {
         "rePassword": password,
         "phone": phoneNumber
       });
-    var response = SignupResponse.fromJson(apiResponse.data);
+      var response = SignupResponse.fromJson(apiResponse.data);
 
-    if(response.message == "success"){
-      return Left(response);
-    }else{
-      return Right(response.message!);
-    }
-    }catch(error){
+      if (response.message == "success") {
+        return Left(response);
+      } else {
+        return Right(response.message!);
+      }
+    } catch (error) {
       return Right(error.toString());
     }
     throw UnimplementedError();

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:online_exam_app/core/DI/di.dart';
+import 'package:online_exam_app/core/cache/shared_pref.dart';
 import 'package:online_exam_app/core/utiles/Validator_manager.dart';
 import 'package:online_exam_app/core/utiles/string_manager.dart';
 import 'package:online_exam_app/core/routes_manager/routes.dart';
@@ -77,7 +78,6 @@ class _SignupScreenState extends State<SignupScreen> {
               horizontal: width * 0.03, vertical: height * 0.02),
           child: Form(
             key: _formKey,
-            autovalidateMode: AutovalidateMode.onUnfocus,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.start,
@@ -95,7 +95,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   children: [
                     Expanded(
                         child: CustomTextField(
-                          onChanged: (value) => validate(),
+                            onChanged: (value) => validate(),
                             label: StringManager.signup[Signup.firstName]!,
                             hint: StringManager.signup[Signup.enterFirstName]!,
                             controller: firstNameController,
@@ -104,7 +104,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     SizedBox(width: width * 0.06),
                     Expanded(
                         child: CustomTextField(
-                          onChanged: (value) => validate(),
+                            onChanged: (value) => validate(),
                             label: StringManager.signup[Signup.lastName]!,
                             hint: StringManager.signup[Signup.enterLastName]!,
                             controller: lastNameController,
@@ -127,7 +127,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   children: [
                     Expanded(
                         child: CustomTextField(
-                          onChanged: (value) => validate(),
+                            onChanged: (value) => validate(),
                             label: StringManager.signup[Signup.password]!,
                             hint: StringManager.signup[Signup.enterPassword]!,
                             controller: passwordController,
@@ -138,7 +138,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                     Expanded(
                         child: CustomTextField(
-                          onChanged: (value) => validate(),
+                            onChanged: (value) => validate(),
                             label:
                                 StringManager.signup[Signup.confirmPassword]!,
                             hint: StringManager.signup[Signup.confirmPassword]!,
@@ -163,6 +163,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       ToastMessage.toastMessage(state.error!);
                     }
                     if (state is SuccessState) {
+                      SharedPref.setToken(state.signupEntity!.token!);
                       Navigator.of(context)
                           .pushReplacementNamed(Routes.homeScreenRoute);
                     }
@@ -176,22 +177,23 @@ class _SignupScreenState extends State<SignupScreen> {
                     }
                     return CustomButton(
                         onPressed: () {
-                            if (isButtonEnabled) {
-                              SignupViewModelCubit.get(context).signup(
-                                username: userNameController.text,
-                                firstName: firstNameController.text,
-                                lastName: lastNameController.text,
-                                email: emailController.text,
-                                password: passwordController.text,
-                                phoneNumber: phoneNumberController.text,
-                              );
-                            }
+                          if (isButtonEnabled) {
+                            SignupViewModelCubit.get(context).signup(
+                              username: userNameController.text,
+                              firstName: firstNameController.text,
+                              lastName: lastNameController.text,
+                              email: emailController.text,
+                              password: passwordController.text,
+                              phoneNumber: phoneNumberController.text,
+                            );
+                          }
                         },
                         isLoading: isLoading,
                         width: 343,
                         height: 48,
-                        backgroundColor:
-                            Theme.of(context).colorScheme.secondary,
+                        backgroundColor: isButtonEnabled
+                            ? Theme.of(context).colorScheme.secondary
+                            : Theme.of(context).colorScheme.tertiary,
                         content: StringManager.signup[Signup.signup]!,
                         contentColor: Theme.of(context).colorScheme.primary,
                         borderRadius: 100,
@@ -206,8 +208,11 @@ class _SignupScreenState extends State<SignupScreen> {
                       Text(StringManager.signup[Signup.haveAnAccount]!,
                           style: Theme.of(context).textTheme.displayMedium),
                       GestureDetector(
-                          onTap: () {},
-                          child: Text("Login",
+                          onTap: () {
+                            Navigator.of(context)
+                                .pushReplacementNamed(Routes.logInScreenRoute);
+                          },
+                          child: Text(StringManager.login[Login.login]!,
                               style: Theme.of(context).textTheme.labelMedium))
                     ],
                   ),

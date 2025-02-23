@@ -11,7 +11,7 @@ class SharedPref {
     sharedPreferences.setString("token", token);
   }
 
-  static getToken() {
+  static String getToken() {
     return sharedPreferences.getString("token") ?? "";
   }
 }

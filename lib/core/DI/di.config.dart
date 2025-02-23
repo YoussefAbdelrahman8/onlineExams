@@ -47,6 +47,14 @@ import '../../features/forget_password/presentation/manager/send_email_view_mode
     as _i653;
 import '../../features/forget_password/presentation/manager/verification_view_model/verification_view_model_cubit.dart'
     as _i110;
+import '../../features/login/data/remote/data_sources/dao_impl/login_api_dao_impl.dart'
+    as _i762;
+import '../../features/login/data/remote/data_sources/login_dao.dart' as _i196;
+import '../../features/login/data/repositories/login_repo_impl.dart' as _i546;
+import '../../features/login/domain/repositories/login_repo.dart' as _i1061;
+import '../../features/login/domain/use_cases/login_usecase.dart' as _i538;
+import '../../features/login/presentation/manager/login_view_model_cubit.dart'
+    as _i754;
 import '../../features/signup/data/remote/data_sources/dao_impl/signup_api_dao_impl.dart'
     as _i695;
 import '../../features/signup/data/remote/data_sources/signup_dao.dart'
@@ -78,18 +86,26 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i680.VerifyResetCodeApiDaoImpl(gh<_i119.ApiManager>()));
     gh.factory<_i1019.ResetPasswordRepo>(
         () => _i196.ResetPasswordRepoImpl(gh<_i907.ResetPasswordDao>()));
+    gh.factory<_i196.LogInDao>(
+        () => _i762.LogInApiDaoImpl(gh<_i119.ApiManager>()));
     gh.factory<_i545.ForgetPasswordDao>(
         () => _i213.ForgetPasswordApiDaoImpl(gh<_i119.ApiManager>()));
     gh.factory<_i826.ResetPasswordUseCase>(
         () => _i826.ResetPasswordUseCase(gh<_i1019.ResetPasswordRepo>()));
     gh.factory<_i642.VerifyResetCodeRepo>(
         () => _i553.VerifyResetCodeRepoImpl(gh<_i785.VerifyResetCodeDao>()));
+    gh.factory<_i1061.LoginRepo>(
+        () => _i546.LoginRepoImpl(gh<_i196.LogInDao>()));
     gh.factory<_i814.ResetPassViewModelCubit>(
         () => _i814.ResetPassViewModelCubit(gh<_i826.ResetPasswordUseCase>()));
     gh.factory<_i502.SignupRepo>(
         () => _i991.SignupRepoImpl(gh<_i669.SignupDao>()));
+    gh.factory<_i538.LoginUseCase>(
+        () => _i538.LoginUseCase(gh<_i1061.LoginRepo>()));
     gh.factory<_i38.ForgetPasswordRepo>(
         () => _i825.ForgetPasswordRepoImpl(gh<_i545.ForgetPasswordDao>()));
+    gh.factory<_i754.LoginViewModelCubit>(
+        () => _i754.LoginViewModelCubit(gh<_i538.LoginUseCase>()));
     gh.factory<_i308.ForgetPasswordUseCase>(
         () => _i308.ForgetPasswordUseCase(gh<_i38.ForgetPasswordRepo>()));
     gh.factory<_i43.VerifyResetCodeUseCase>(
