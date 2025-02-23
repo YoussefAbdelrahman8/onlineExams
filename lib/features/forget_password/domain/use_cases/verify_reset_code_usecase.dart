@@ -12,6 +12,5 @@ class VerifyResetCodeUseCase {
   VerifyResetCodeUseCase(this.repo);
 
   Future<Either<VerifyResetCodeEntity, String>> call(
-          {required String resetCode}) =>
-      repo.verifyResetCode(resetCode: resetCode);
+          {required String resetCode}) => repo.verifyResetCode(resetCode: resetCode);
 }

@@ -21,7 +21,7 @@ class VerifyResetCodeApiDaoImpl extends VerifyResetCodeDao {
         body: {"resetCode": resetCode},
       );
       var response = VerifyResetCodeResponse.fromJson(apiResponse.data);
-      if (response.status == "success") {
+      if (response.status == "Success") {
         return Left(response);
       } else {
         return Right(response.message!);

@@ -34,6 +34,10 @@ abstract class ThemeManager {
             borderSide: BorderSide(color: ColorManager.error)),
       ),
       textTheme: TextTheme(
+        bodyMedium: const TextStyle(
+          fontSize: 24,
+          fontWeight: FontWeight.bold,
+        ),
         titleMedium: const TextStyle(
           fontWeight: FontWeight.w500,
           fontSize: 18,

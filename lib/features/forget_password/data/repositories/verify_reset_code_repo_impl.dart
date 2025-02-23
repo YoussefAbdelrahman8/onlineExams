@@ -20,7 +20,7 @@ class VerifyResetCodeRepoImpl extends VerifyResetCodeRepo {
     bool isConnected = true;
     if (isConnected) {
       var result = await verifyDao.verifyResetCode(resetCode: resetCode);
-      result.fold((response) {
+      return result.fold((response) {
         return Left(response.toVerifyResetCodeEntity());
       }, (error) {
         return Right(error);

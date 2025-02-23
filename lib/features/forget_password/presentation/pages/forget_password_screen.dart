@@ -1,25 +1,47 @@
 import 'package:flutter/material.dart';
 import 'package:online_exam_app/core/utiles/string_manager.dart';
+import 'package:online_exam_app/features/forget_password/presentation/pages/tabs/reset_passeord_part.dart';
+import 'package:online_exam_app/features/forget_password/presentation/pages/tabs/send_email_part.dart';
+import 'package:online_exam_app/features/forget_password/presentation/pages/tabs/verification_part.dart';
 
-class ForgetPasswordScreen extends StatelessWidget {
+class ForgetPasswordScreen extends StatefulWidget {
   const ForgetPasswordScreen({super.key});
 
   @override
+  State<ForgetPasswordScreen> createState() => _ForgetPasswordScreenState();
+}
+
+class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
+  int _index = 0;
+  String _email = "";
+
+  switchTabs(String? nEmail) {
+    setState(() {
+      _email = nEmail ?? "";
+      _index++;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
+    List<Widget> parts = [
+      SendEmailPart(
+        switchTabs: switchTabs,
+      ),
+      VerificationPart(
+        switchTabs: switchTabs,
+        email: _email,
+      ),
+      ResetPasswordPart(
+        email: _email,
+        switchTabs: switchTabs,
+      )
+    ];
     return Scaffold(
       appBar: AppBar(
         title: Text(StringManager.forgetPassword[ForgetPassword.password]!),
       ),
-      body: const SingleChildScrollView(
-        padding: EdgeInsets.symmetric(),
-        child: Center(
-          child: Column(
-            children: [],
-          ),
-        ),
-      ),
+      body: parts[_index],
     );
   }
 }
