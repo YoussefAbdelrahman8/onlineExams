@@ -42,10 +42,18 @@ enum ForgetPassword {
   forgetPassword,
   pleaseEnterUrEmail,
   coontinue,
+  emailVerification,
+  enterCode,
+  dontReceive,
+  resend,
+  resetPass,
+  passRules,
 }
 
 abstract class StringManager {
   static const String noInternet = "No Internet Connection";
+  static const String invalidCode = "Invalid code！";
+
   static const Map<dynamic, String> signup = {
     Signup.signup: "Sign up",
     Signup.userName: "User name",
@@ -91,5 +99,13 @@ abstract class StringManager {
     ForgetPassword.pleaseEnterUrEmail:
         "Please enter your email associated to\nyour account",
     ForgetPassword.coontinue: "Continue",
+    ForgetPassword.emailVerification: "Email verification",
+    ForgetPassword.enterCode:
+        "Please enter your code that send to your\nemail address",
+    ForgetPassword.dontReceive: "Didn't receive code? ",
+    ForgetPassword.resend: "Resend",
+    ForgetPassword.resetPass: "Reset Password",
+    ForgetPassword.passRules:
+        "Password must not be empty and must contain\n6 characters with upper case letter and one number\nand one special character at least",
   };
 }

@@ -83,7 +83,7 @@ class _SignupScreenState extends State<SignupScreen> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 CustomTextField(
-                  onChanged: (value) => validate,
+                  onChanged: (value) => validate(),
                   secure: false,
                   validation: ValidatorManager.validateUsername,
                   controller: userNameController,
@@ -95,7 +95,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   children: [
                     Expanded(
                         child: CustomTextField(
-                          onChanged: (value) => validate,
+                          onChanged: (value) => validate(),
                             label: StringManager.signup[Signup.firstName]!,
                             hint: StringManager.signup[Signup.enterFirstName]!,
                             controller: firstNameController,
@@ -104,7 +104,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     SizedBox(width: width * 0.06),
                     Expanded(
                         child: CustomTextField(
-                          onChanged: (value) => validate,
+                          onChanged: (value) => validate(),
                             label: StringManager.signup[Signup.lastName]!,
                             hint: StringManager.signup[Signup.enterLastName]!,
                             controller: lastNameController,
@@ -114,7 +114,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
                 SizedBox(height: height * 0.03),
                 CustomTextField(
-                  onChanged: (value) => validate,
+                  onChanged: (value) => validate(),
                   secure: false,
                   validation: ValidatorManager.validateEmail,
                   controller: emailController,
@@ -127,7 +127,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   children: [
                     Expanded(
                         child: CustomTextField(
-                          onChanged: (value) => validate,
+                          onChanged: (value) => validate(),
                             label: StringManager.signup[Signup.password]!,
                             hint: StringManager.signup[Signup.enterPassword]!,
                             controller: passwordController,
@@ -138,7 +138,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                     Expanded(
                         child: CustomTextField(
-                          onChanged: (value) => validate,
+                          onChanged: (value) => validate(),
                             label:
                                 StringManager.signup[Signup.confirmPassword]!,
                             hint: StringManager.signup[Signup.confirmPassword]!,
@@ -149,7 +149,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
                 SizedBox(height: height * 0.03),
                 CustomTextField(
-                  onChanged: (value) => validate,
+                  onChanged: (value) => validate(),
                   secure: false,
                   validation: ValidatorManager.validateUsername,
                   controller: phoneNumberController,
@@ -160,7 +160,6 @@ class _SignupScreenState extends State<SignupScreen> {
                 BlocConsumer<SignupViewModelCubit, SignupViewModelState>(
                   listener: (context, state) {
                     if (state is ErrorState) {
-                      isLoading = false;
                       ToastMessage.toastMessage(state.error!);
                     }
                     if (state is SuccessState) {
@@ -169,6 +168,9 @@ class _SignupScreenState extends State<SignupScreen> {
                     }
                   },
                   builder: (context, state) {
+                    if (state is ErrorState) {
+                      isLoading = false;
+                    }
                     if (state is LoadingState) {
                       isLoading = true;
                     }

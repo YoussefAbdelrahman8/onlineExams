@@ -17,7 +17,7 @@ class ValidatorManager {
     if (value == null || value.isEmpty) {
       return StringManager.validation[Validation.passReq];
     }
-    if (value.length < 8) {
+    if (value.length < 6) {
       return StringManager.validation[Validation.pass8Char];
     }
     if (!RegExp(r'[A-Z]').hasMatch(value)) {
