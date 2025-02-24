@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:online_exam_app/core/DI/di.dart';
 import 'package:online_exam_app/core/routes_manager/route_generator.dart';
+import 'package:online_exam_app/core/utiles/color_manager.dart';
 
 import '../../../../../core/routes_manager/routes.dart';
 import '../../../../../core/utiles/Validator_manager.dart';
@@ -122,7 +123,7 @@ class _ResetPasswordPartState extends State<ResetPasswordPart> {
                         height: 48,
                         backgroundColor: isButtonEnabled
                             ? Theme.of(context).colorScheme.secondary
-                            : Theme.of(context).colorScheme.tertiary,
+                            : ColorManager.black[30]!,
                         content: StringManager
                             .forgetPassword[ForgetPassword.coontinue]!,
                         contentColor: Theme.of(context).colorScheme.primary,

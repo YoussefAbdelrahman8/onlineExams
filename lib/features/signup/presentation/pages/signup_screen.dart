@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:online_exam_app/core/DI/di.dart';
 import 'package:online_exam_app/core/cache/shared_pref.dart';
 import 'package:online_exam_app/core/utiles/Validator_manager.dart';
+import 'package:online_exam_app/core/utiles/color_manager.dart';
 import 'package:online_exam_app/core/utiles/string_manager.dart';
 import 'package:online_exam_app/core/routes_manager/routes.dart';
 import 'package:online_exam_app/core/widget/custom_button.dart';
@@ -193,7 +194,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         height: 48,
                         backgroundColor: isButtonEnabled
                             ? Theme.of(context).colorScheme.secondary
-                            : Theme.of(context).colorScheme.tertiary,
+                            : ColorManager.black[30]!,
                         content: StringManager.signup[Signup.signup]!,
                         contentColor: Theme.of(context).colorScheme.primary,
                         borderRadius: 100,

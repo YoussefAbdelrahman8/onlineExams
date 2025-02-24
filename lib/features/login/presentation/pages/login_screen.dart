@@ -91,14 +91,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       children: [
                         Checkbox(
                           fillColor: WidgetStatePropertyAll(isChecked
-                              ? ColorManager.lightOnTertiary
+                              ? ColorManager.lightOnSecondary
                               : ColorManager.lightPrimaryColor),
                           value: isChecked,
                           onChanged: (value) {
                             setState(() {
-                              SharedPref.setToken(_token);
                               isChecked = !isChecked;
                             });
+                            SharedPref.setToken(_token);
                           },
                         ),
                         Text(
@@ -151,7 +151,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         height: 48,
                         backgroundColor: isButtonEnabled
                             ? Theme.of(context).colorScheme.secondary
-                            : Theme.of(context).colorScheme.tertiary,
+                            : ColorManager.black[30]!,
                         content: StringManager.login[Login.login]!,
                         contentColor: Theme.of(context).colorScheme.primary,
                         borderRadius: 100,

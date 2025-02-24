@@ -21,9 +21,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeManager.lightTheme,
       darkTheme: ThemeManager.darkTheme,
       themeMode: ThemeMode.light,
-      initialRoute: SharedPref.getToken().isEmpty
-          ? Routes.logInScreenRoute
-          : Routes.homeScreenRoute,
+      initialRoute: Routes.logInScreenRoute,
+      // SharedPref.getToken().isEmpty
+      //     ? Routes.logInScreenRoute
+      //     : Routes.homeScreenRoute,
+      //
       // Set the initial screen
       onGenerateRoute: RouteGenerator.getRoute,
     );

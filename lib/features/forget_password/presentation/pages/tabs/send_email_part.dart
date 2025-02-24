@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:online_exam_app/core/utiles/color_manager.dart';
 import 'package:online_exam_app/features/forget_password/presentation/pages/forget_password_screen.dart';
 
 import '../../../../../core/DI/di.dart';
@@ -111,7 +112,7 @@ class _SendEmailPartState extends State<SendEmailPart> {
                       height: 48,
                       backgroundColor: isButtonEnabled
                           ? Theme.of(context).colorScheme.secondary
-                          : Theme.of(context).colorScheme.tertiary,
+                          : ColorManager.black[30]!,
                       content: StringManager
                           .forgetPassword[ForgetPassword.coontinue]!,
                       contentColor: Theme.of(context).colorScheme.primary,

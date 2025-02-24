@@ -7,71 +7,75 @@ abstract class ThemeManager {
     checkboxTheme: CheckboxThemeData(
       checkColor: WidgetStatePropertyAll(ColorManager.lightPrimaryColor),
       side: BorderSide(
-        color: ColorManager.lightOnTertiary,
+        color: ColorManager.lightOnPrimaryColor,
         width: 2,
       ),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(2),
       ),
     ),
-      appBarTheme: const AppBarTheme(
+      appBarTheme:  AppBarTheme(
       titleTextStyle: TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.w500,
-        color: Colors.black
+        color: ColorManager.lightOnSecondary
       )
     ),
       inputDecorationTheme: InputDecorationTheme(
         labelStyle: TextStyle(
             fontWeight: FontWeight.w400,
             fontSize: 14,
-            color: ColorManager.lightOnTertiary),
-        hintStyle: const TextStyle(
+            color: ColorManager.lightOnPrimaryColor),
+        hintStyle:  TextStyle(
           fontWeight: FontWeight.w400,
           fontSize: 14,
-          color: Color(0xFFA6A6A6),
+          color: ColorManager.lightTertiary,
         ),
-        counterStyle: TextStyle(color: ColorManager.lightOnTertiary),
+        counterStyle: TextStyle(color: ColorManager.lightOnSecondary),
         floatingLabelBehavior: FloatingLabelBehavior.always,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(4),
         ),
         enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: ColorManager.lightTertiary)),
+            borderSide: BorderSide(color: ColorManager.lightOnPrimaryColor)),
         focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: ColorManager.lightOnTertiary)),
+            borderSide: BorderSide(color: ColorManager.lightOnSecondary)),
         errorBorder: OutlineInputBorder(
             borderSide: BorderSide(color: ColorManager.error)),
       ),
       textTheme: TextTheme(
-        bodySmall: const TextStyle(
+        bodySmall:  TextStyle(
           fontSize: 13,
           fontWeight: FontWeight.w400,
+          color: ColorManager.lightOnSecondary
         ),
-        bodyMedium: const TextStyle(
+        bodyMedium:  TextStyle(
           fontSize: 24,
           fontWeight: FontWeight.bold,
+            color: ColorManager.lightOnSecondary
         ),
-        titleMedium: const TextStyle(
+        titleMedium:  TextStyle(
           fontWeight: FontWeight.w500,
           fontSize: 18,
+            color: ColorManager.lightOnSecondary
         ),
         displaySmall:TextStyle(
           fontWeight: FontWeight.w400,
           fontSize: 14,
-          color: ColorManager.lightTertiary,
+          color: ColorManager.lightOnPrimaryColor,
         ),
-        displayMedium: const TextStyle(
+        displayMedium:  TextStyle(
           fontWeight: FontWeight.w400,
           fontSize: 16,
+            color: ColorManager.lightOnSecondary
         ),
         headlineSmall: TextStyle(
           decoration: TextDecoration.underline,
-          decorationColor: ColorManager.lightOnTertiary,
+          decorationColor: ColorManager.lightOnSecondary,
           decorationThickness: 3.0,
           fontWeight: FontWeight.w400,
           fontSize: 12,
-          color: ColorManager.lightOnTertiary
+          color: ColorManager.lightOnSecondary
       ),
         labelMedium: TextStyle(
           decoration: TextDecoration.underline,
@@ -81,9 +85,10 @@ abstract class ThemeManager {
           fontSize: 16,
           color: ColorManager.lightSecondaryColor
         ),
-        labelSmall: const TextStyle(
+        labelSmall:  TextStyle(
           fontWeight: FontWeight.w500,
           fontSize: 16,
+            color: ColorManager.lightOnSecondary
         ),
       ),
       colorScheme: ColorScheme.fromSeed(

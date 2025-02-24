@@ -40,11 +40,11 @@ class PinCodeWidget extends StatelessWidget {
             fieldWidth: width * 0.139,
             //74
             inactiveFillColor:
-                isError ? Colors.white : Theme.of(context).colorScheme.onPrimary,
+                isError ? Colors.white : ColorManager.pinCodeBoxColor,
             activeFillColor:
-                isError ? Colors.white : Theme.of(context).colorScheme.onPrimary,
+                isError ? Colors.white : ColorManager.pinCodeBoxColor,
             selectedFillColor:
-                isError ? Colors.white : Theme.of(context).colorScheme.onPrimary,
+                isError ? Colors.white : ColorManager.pinCodeBoxColor,
             inactiveColor: isError ? ColorManager.error : Colors.transparent,
             activeColor: isError ? ColorManager.error : Colors.transparent,
             selectedColor: isError ? ColorManager.error : Colors.transparent,

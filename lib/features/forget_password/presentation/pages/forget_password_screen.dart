@@ -41,7 +41,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
       appBar: AppBar(
         title: Text(StringManager.forgetPassword[ForgetPassword.password]!),
       ),
-      body: parts[_index],
+      body: parts[2],
     );
   }
 }

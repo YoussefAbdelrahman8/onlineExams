@@ -27,7 +27,7 @@ class CustomTextField extends StatelessWidget {
         return validation!(value);
       },
       onChanged: onChanged,
-      cursorColor: Theme.of(context).colorScheme.tertiary,
+      cursorColor: Theme.of(context).colorScheme.onSecondary,
       controller: controller,
       obscureText: secure,
       obscuringCharacter: "*",
