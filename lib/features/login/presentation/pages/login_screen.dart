@@ -21,7 +21,6 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
-  late String _token;
   bool isChecked = false;
   bool isButtonEnabled = true;
   bool isLoading = false;
@@ -98,7 +97,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             setState(() {
                               isChecked = !isChecked;
                             });
-                            SharedPref.setToken(_token);
+                            SharedPref.setRememberMe(isChecked);
                           },
                         ),
                         Text(
@@ -126,7 +125,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       ToastMessage.toastMessage(state.error);
                     }
                     if (state is LoginViewModelSuccessState) {
-                      _token = state.loginEntity.token!;
+                      SharedPref.setToken(state.loginEntity.token!);
+                      SharedPref.setUser(state.loginEntity.user!);
                       Navigator.of(context)
                           .pushReplacementNamed(Routes.homeScreenRoute);
                     }

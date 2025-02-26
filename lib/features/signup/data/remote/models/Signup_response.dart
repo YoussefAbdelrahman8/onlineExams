@@ -39,9 +39,6 @@ class SignupResponse {
   }
 
   SignupEntity toSignupEntity() {
-    return SignupEntity(
-      message: message,
-      token: token,
-    );
+    return SignupEntity(message: message, token: token, user: user);
   }
 }
