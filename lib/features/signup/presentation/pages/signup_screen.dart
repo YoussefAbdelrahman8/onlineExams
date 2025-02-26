@@ -8,6 +8,7 @@ import 'package:online_exam_app/core/utiles/string_manager.dart';
 import 'package:online_exam_app/core/routes_manager/routes.dart';
 import 'package:online_exam_app/core/widget/custom_button.dart';
 import 'package:online_exam_app/core/widget/toast_message.dart';
+import 'package:online_exam_app/features/login/data/remote/models/User.dart';
 import 'package:online_exam_app/features/signup/presentation/manager/signup_view_model_cubit.dart';
 
 import '../../../../core/widget/custom_text_field.dart';
@@ -165,6 +166,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     }
                     if (state is SuccessState) {
                       SharedPref.setToken(state.signupEntity!.token!);
+                      SharedPref.setUser(state.signupEntity!.user! as User);
                       Navigator.of(context)
                           .pushReplacementNamed(Routes.homeScreenRoute);
                     }

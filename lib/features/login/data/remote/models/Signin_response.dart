@@ -39,6 +39,11 @@ class SigninResponse {
   }
 
   LoginEntity toLoginEntity() {
-    return LoginEntity(message: message, token: token, code: code);
+    return LoginEntity(
+      message: message,
+      token: token,
+      code: code,
+      user: user,
+    );
   }
 }
